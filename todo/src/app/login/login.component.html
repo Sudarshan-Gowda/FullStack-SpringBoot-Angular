@@ -1,0 +1,26 @@
+
+
+<div class="login-form">
+        <div class="alert alert-warning" *ngIf="invalidLogin">{{errorMessage}}</div>
+        
+        <div class="alert alert-warning" *ngIf="loginForm.dirty && loginForm.invalid">
+                Enter valid values
+        </div>
+        
+        <form (ngSubmit)="!loginForm.invalid && jwtAuthLogin()" #loginForm="ngForm">
+            <h2 class="text-center">Log in</h2>       
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username" required="required" 
+                name="username" [(ngModel)]="username">
+                
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" required="required" 
+                name="password" [(ngModel)]="password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Log in</button>
+            </div>
+                 
+        </form>
+</div>
